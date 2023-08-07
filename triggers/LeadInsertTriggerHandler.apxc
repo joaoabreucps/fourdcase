@@ -1,4 +1,4 @@
-trigger LeadInsertTrigger on Lead (before insert) {
+trigger LeadInsertTriggerHandler on Lead (before insert) {
     
     if (Trigger.isInsert) {
         if (Trigger.isBefore) {
@@ -22,7 +22,7 @@ trigger LeadInsertTrigger on Lead (before insert) {
                         lead.PostalCode = postalCode;  
                         
                     }else{
-                        System.debug('Postal Code '+postalCode+' is not a number or is incomplete');
+                        System.debug('O Cep '+postalCode+' esta incorreto');
                     }     
                 }
             }    
