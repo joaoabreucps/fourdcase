@@ -1,3 +1,4 @@
+
 trigger LeadInsertTriggerHandler on Lead (before insert) {
     
     if (Trigger.isInsert) {
