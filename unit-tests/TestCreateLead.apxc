@@ -1,47 +1,47 @@
 @isTest
-public class TestLeadInsertion {
+public class TestCreateLead {
     
     @isTest
     static void testLeadWithValidPostalCode(){
         
-        Lead lead = new Lead(Phone='11999999999',
-                             PostalCode='06454-070',
-                             LastName='Test',
-                             Company='Company Test');
+        Lead lead = new Lead(Phone='19999999999',
+                             PostalCode='13810-340',
+                             LastName='Test Lead',
+                             Company='Test Lead');
         
         Test.startTest();
         insert lead;
         Test.stopTest();
-        System.assert(lead.Id != null, 'Lead Inserted');
+        System.assert(lead.Id != null, 'Lead criado com sucesso!');
         
     }
     
     @isTest
     static void testLeadWithInvalidPostalCodeChar(){
         
-        Lead lead = new Lead(Phone='11999999999',
-                             PostalCode='0645407A',
+        Lead lead = new Lead(Phone='19984731625',
+                             PostalCode='1384537C',
                              LastName='Test',
                              Company='Company Test');
         
         Test.startTest();
         insert lead;
         Test.stopTest();
-        System.assert(lead.Id == null, 'Lead Not Inserted');
+        System.assert(lead.Id == null, 'Lead não criado');
     }
     
     @isTest
     static void testLeadWithInvalidPostalCodeLenght(){
         
         Lead lead = new Lead(Phone='11999999999',
-                             PostalCode='0645407888',
+                             PostalCode='0645407888w',
                              LastName='Test',
                              Company='Company Test');
         
         Test.startTest();
         insert lead;
         Test.stopTest();
-        System.assert(lead.Id == null, 'Lead Not Inserted');
+        System.assert(lead.Id == null, 'Lead não criado');
         
     }
 
