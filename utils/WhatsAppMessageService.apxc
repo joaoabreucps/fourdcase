@@ -1,11 +1,11 @@
-public class WhatsAppMessageUtils {
+public class WhatsAppMessageService {
     
     public static void sendTextMessage(String messageContent, String toPhone, String leadName){
         
         String whatsAppAccessToken = 'WHATSAPPACCESSTOKEN';
         
         HttpRequest httpReq = new HttpRequest();
-        httpReq.setEndpoint('https://graph.facebook.com/v13.0/109671681865676/messages');
+        httpReq.setEndpoint('https://graph.facebook.com/v13.0/2096715688436645/messages');
         httpReq.setMethod('POST');
         httpReq.setHeader('Content-Type', 'application/json');
         httpReq.setHeader('Authorization', 'Bearer '+whatsAppAccessToken);
@@ -29,18 +29,12 @@ public class WhatsAppMessageUtils {
             System.debug('Sending whatsapp message to Lead: '+leadName);
             HttpResponse response = http.send(httpReq);
             if( response.getStatusCode() == 200 ){
-                System.debug('Whatsapp Message sent successfully to Lead: '+leadName);
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Whatsapp Message sent successfully to Lead: '+leadName));
             }
         }catch(System.CalloutException ex){
-            System.debug(' Error to send whatsapp message to Lead: '+leadName);
-            System.debug(' CalloutException Executed '+ ex.getStackTraceString() );
-            System.debug(' CalloutException Executed '+ ex.getMessage() );
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL,'Error to send whatsapp message to Lead: '+leadName));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL,'Ocorreu um erro ao enviar mensagem para o Lead: '+leadName));
         }catch(System.Exception ex){
-            System.debug(' Error to send whatsapp message to Lead: '+leadName);
-            System.debug(' System.Exception Executed '+ ex.getStackTraceString() );
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL,'Error to send whatsapp message to Lead: '+leadName));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.FATAL,'Ocorreu um erro ao enviar mensagem para o Lead: '+leadName));
         }
         
     }
@@ -53,7 +47,7 @@ public class WhatsAppMessageUtils {
 		public String wa_id;	
 	}
 	public class messages {
-		public String id;	//wamid.HBgMOTE2MzkyMzAyMDkwFQIAERgSODVBRDAxNDIzRkJCNkRDMTc3AA==
+		public String id;
 	}
 
 }
