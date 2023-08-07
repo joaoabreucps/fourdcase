@@ -1,4 +1,4 @@
-<apex:page controller="LeadWhatsAppMessageController">
+<apex:page controller="WhatsAppMessageController">
    <apex:form >
       <apex:pageBlock mode="edit" id="block" title="Send Whatsapp Message to Lead">
          <apex:pageMessages id="showmsg"></apex:pageMessages>
