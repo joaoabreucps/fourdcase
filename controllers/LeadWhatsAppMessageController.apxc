@@ -1,4 +1,4 @@
-public class LeadWhatsAppMessageController {
+public class WhatsAppMessageController {
   
     String searchText;
     List<Lead> results;
